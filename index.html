@@ -7,20 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Word Guess Game</title>
+    <title>Classic Gaming Characters Guess Game</title>
 </head>
 
 <body>
     <div class="container bg-light">
         <div class="row mt-2 border rounded border-dark">
-            <div class="col-sm-12 d-flex justify-content-center align-items-center">
-                <h1 class="text-center">Classic Gaming Word Guess Game!</h1>
+            <div class="col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center">Guessing Game</h1>
+                <h2 class="text-center">Classic Gaming Characters</h2>
             </div>
         </div>
         <div class="row border rounded border-dark">
-            <div class="col-sm-9 d-flex justify-content-center align-items-center">
+            <div class="col-sm-9 d-flex flex-column justify-content-center align-items-center">
                 <img id="results" src="">
                 <audio style="display: none" src="" id="audio"></audio>
+                <div id="resultsText"></div>
             </div>
             <div class="card col-sm-3">
                 <div class="card-header">
@@ -28,7 +30,7 @@
                 </div>
                 <div class="list-group list-group-flush">
                     <li class="list-group-item">Your total wins: <span id="winnies"></span></li>
-                    <div class="text-center">Current Word</div>
+                    <div class="text-center">Current Character</div>
                     <div id="currentWord" class="text-center" style="font-size: 1.7rem"></div>
                     <li class="list-group-item">Number of guesses remaining: <span id="guessy"></span></li>
                     <li class="list-group-item">Letters already guessed: <span id="letters"></span></li>

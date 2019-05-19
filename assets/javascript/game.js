@@ -1,12 +1,12 @@
 //variables
-var choices = ["Bomberman", "Crono", "Kirby", "Robo", "Ryu", "Scorpion", "Yoshi", "Zangief", "Zero", "Vile", "Thunder"];
+var choices = ["Bomberman", "Crono", "Kirby", "Robo", "Hayabusa", "Scorpion", "Yoshi", "Zangief", "Zero", "Vile", "Thunder", "Ryu", "Jago", "Spinal", "Cinder"];
 var cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
 var wins = 0;
 var blanks = [];
 var lettersGuessed = [];
 var guessesRemaining = 12;
 var tracks = ["assets/tunes/bomberman.mp3", "assets/tunes/chrono.mp3", "assets/tunes/kirby.mp3", "assets/tunes/ninja.mp3", "assets/tunes/scorpion.mp3", "assets/tunes/yoshi.mp3", "assets/tunes/zangief.mp3", "assets/tunes/zero.mp3", "assets/tunes/KI.mp3", "assets/tunes/loss.mp3"];
-var images = ["assets/images/bomberman.gif", "assets/images/crono.gif", "assets/images/kirby.gif", "assets/images/robo.gif", "assets/images/ryu.gif", "assets/images/scorpion.gif", "assets/images/yoshi.gif", "assets/images/zangief.gif", "assets/images/zero.gif", "assets/images/vile.gif", "assets/images/thunder.gif"];
+var images = ["assets/images/bomberman.gif", "assets/images/crono.gif", "assets/images/kirby.gif", "assets/images/robo.gif", "assets/images/ryu.gif", "assets/images/scorpion.gif", "assets/images/yoshi.gif", "assets/images/zangief.gif", "assets/images/zero.gif", "assets/images/vile.gif", "assets/images/thunder.gif", "assets/images/ryu2.gif", "assets/images/jago.gif", "assets/images/spinal.gif", "assets/images/cinder.gif", "assets/images/loss.gif"];
 
 
 // generate underscores, resets numbers and text
@@ -66,7 +66,7 @@ function imageGenerator() {
     else if (cpuChoice == "robo") {
         document.getElementById("results").setAttribute("src", images[3]);
     }
-    else if (cpuChoice == "ryu") {
+    else if (cpuChoice == "hayabusa") {
         document.getElementById("results").setAttribute("src", images[4]);
     }
     else if (cpuChoice == "scorpion") {
@@ -84,8 +84,20 @@ function imageGenerator() {
     else if (cpuChoice == "vile") {
         document.getElementById("results").setAttribute("src", images[9]);
     }
-    else {
+    else if (cpuChoice == "thunder") {
         document.getElementById("results").setAttribute("src", images[10]);
+    }
+    else if (cpuChoice == "ryu") {
+        document.getElementById("results").setAttribute("src", images[11]);
+    }
+    else if (cpuChoice == "jago") {
+        document.getElementById("results").setAttribute("src", images[12]);
+    }
+    else if (cpuChoice == "spinal") {
+        document.getElementById("results").setAttribute("src", images[13]);
+    }
+    else {
+        document.getElementById("results").setAttribute("src", images[14]);
     }
 }
 
@@ -100,6 +112,7 @@ function winGranter() {
     if (!blanks.includes("_")) {
         wins++;
         document.getElementById("winnies").innerText = wins;
+        document.getElementById("resultsText").innerText = "You won! The character was " + cpuChoice.toUpperCase() + "!";
         imageGenerator();
         if (cpuChoice == "bomberman") {
             playSound(tracks[0]);
@@ -110,7 +123,7 @@ function winGranter() {
         else if (cpuChoice == "kirby") {
             playSound(tracks[2]);
         }
-        else if (cpuChoice == "ryu") {
+        else if (cpuChoice == "hayabusa") {
             playSound(tracks[3]);
         }
         else if (cpuChoice == "scorpion") {
@@ -119,7 +132,7 @@ function winGranter() {
         else if (cpuChoice == "yoshi") {
             playSound(tracks[5]);
         }
-        else if (cpuChoice == "zangief") {
+        else if (cpuChoice == "zangief" || cpuChoice == "ryu") {
             playSound(tracks[6]);
         }
         else if (cpuChoice == "zero" || cpuChoice == "vile") {
@@ -135,7 +148,8 @@ function winGranter() {
 
 function lossGranter() {
     if (guessesRemaining <= 0) {
-        document.getElementById("results").innerHTML = "<h2>The character was " + cpuChoice + "!</h2>";
+        document.getElementById("results").setAttribute("src", images[images.length - 1]);
+        document.getElementById("resultsText").innerText = "You failed! The character was " + cpuChoice.toUpperCase() + "!";
         playSound(tracks[tracks.length - 1]);
         cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
         blanker();

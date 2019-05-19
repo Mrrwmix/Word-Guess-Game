@@ -9,7 +9,7 @@ body {
     src: url("../font/Ode_to_Idle_Gaming.woff")
 }
 
-h1 {
+h1, h2 {
     font-family: "Ode to Idle Gaming", "courier new", "serif";
     text-shadow: 2px 2px teal;
 }
