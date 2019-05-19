@@ -7,7 +7,6 @@ var lettersGuessed = [];
 var guessesRemaining = 12;
 var tracks = ["assets/tunes/bomberman.mp3", "assets/tunes/chrono.mp3", "assets/tunes/kirby.mp3", "assets/tunes/ninja.mp3", "assets/tunes/scorpion.mp3", "assets/tunes/yoshi.mp3", "assets/tunes/zangief.mp3", "assets/tunes/zero.mp3", "assets/tunes/KI.mp3", "assets/tunes/loss.mp3"];
 var images = ["assets/images/bomberman.gif", "assets/images/crono.gif", "assets/images/kirby.gif", "assets/images/robo.gif", "assets/images/ryu.gif", "assets/images/scorpion.gif", "assets/images/yoshi.gif", "assets/images/zangief.gif", "assets/images/zero.gif", "assets/images/vile.gif", "assets/images/thunder.gif"];
-console.log(cpuChoice);
 
 
 // generate underscores, resets numbers and text

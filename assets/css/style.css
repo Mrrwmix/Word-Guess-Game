@@ -11,4 +11,9 @@ body {
 
 h1 {
     font-family: "Ode to Idle Gaming", "courier new", "serif";
+    text-shadow: 2px 2px teal;
+}
+
+.container {
+    font-family: 'Courier New', Courier, monospace;
 }
