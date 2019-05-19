@@ -9,18 +9,22 @@ console.log(cpuChoice);
 
 
 
-// generate underscores
+// generate underscores, resets numbers and text
 function blanker() {
     blanks = [];
+    lettersGuessed = [];
+    guessesRemaining = 12;
     for (var i = 0; i < cpuChoice.length; i++) {
         blanks[i] = "_";
     }
     document.getElementById("currentWord").innerText = blanks;
+    document.getElementById("guessy").innerText = guessesRemaining;
+    document.getElementById("letters").innerText = lettersGuessed;
 }
 
 blanker();
 
-//show letters guessed (key must be a letter)
+//onkeyup functionality, checks letters + validation + guesses remaining, if winning, and if losing
 document.onkeyup = function (event) {
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         var theGuess = event.key;
@@ -30,10 +34,15 @@ document.onkeyup = function (event) {
                     blanks[i] = theGuess;
                 }
             }
+            if (!cpuChoice.includes(theGuess)){
+                guessesRemaining--;
+            }
             lettersGuessed.push(theGuess);
+            document.getElementById("guessy").innerText = guessesRemaining;
             document.getElementById("letters").innerText = lettersGuessed;
             document.getElementById("currentWord").innerText = blanks;
             winGranter();
+            lossGranter();
         }
     }
     else {
@@ -57,6 +66,14 @@ function winGranter() {
     if (!blanks.includes("_")) {
         wins++;
         document.getElementById("winnies").innerText = wins;
+        cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
+        blanker();
+    }
+}
+
+function lossGranter() {
+    if (guessesRemaining <= 0){
+        document.getElementById("results").innerHTML = "<h2>The character was " + cpuChoice + "!</h2>";
         cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
         blanker();
     }
