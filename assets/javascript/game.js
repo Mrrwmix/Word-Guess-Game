@@ -1,12 +1,13 @@
 //variables
-var choices = ["Bomberman", "Crono", "Kirby", "Robo", "Ryu", "Scorpion", "Yoshi", "Zangief", "Zero"];
+var choices = ["Bomberman", "Crono", "Kirby", "Robo", "Ryu", "Scorpion", "Yoshi", "Zangief", "Zero", "Vile", "Thunder"];
 var cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
 var wins = 0;
 var blanks = [];
 var lettersGuessed = [];
 var guessesRemaining = 12;
+var tracks = ["assets/tunes/bomberman.mp3", "assets/tunes/chrono.mp3", "assets/tunes/kirby.mp3", "assets/tunes/ninja.mp3", "assets/tunes/scorpion.mp3", "assets/tunes/yoshi.mp3", "assets/tunes/zangief.mp3", "assets/tunes/zero.mp3", "assets/tunes/KI.mp3"];
+var images = ["assets/images/bomberman.gif", "assets/images/crono.gif", "assets/images/kirby.gif", "assets/images/robo.gif", "assets/images/ryu.gif", "assets/images/scorpion.gif", "assets/images/yoshi.gif", "assets/images/zangief.gif", "assets/images/zero.gif", "assets/images/vile.gif", "assets/images/thunder.gif"];
 console.log(cpuChoice);
-
 
 
 // generate underscores, resets numbers and text
@@ -34,7 +35,7 @@ document.onkeyup = function (event) {
                     blanks[i] = theGuess;
                 }
             }
-            if (!cpuChoice.includes(theGuess)){
+            if (!cpuChoice.includes(theGuess)) {
                 guessesRemaining--;
             }
             lettersGuessed.push(theGuess);
@@ -53,7 +54,41 @@ document.onkeyup = function (event) {
 
 
 //generate an image after win or loss
-
+function imageGenerator() {
+    if (cpuChoice == "bomberman"){
+        document.getElementById("results").setAttribute("src", images[0]);
+    }
+    else if (cpuChoice == "crono"){
+        document.getElementById("results").setAttribute("src", images[1]);
+    }
+    else if (cpuChoice == "kirby"){
+        document.getElementById("results").setAttribute("src", images[2]);
+    }
+    else if (cpuChoice == "robo"){
+        document.getElementById("results").setAttribute("src", images[3]);
+    }
+    else if (cpuChoice == "ryu"){
+        document.getElementById("results").setAttribute("src", images[4]);
+    }
+    else if (cpuChoice == "scorpion"){
+        document.getElementById("results").setAttribute("src", images[5]);
+    }
+    else if (cpuChoice == "yoshi"){
+        document.getElementById("results").setAttribute("src", images[6]);
+    }
+    else if (cpuChoice == "zangief"){
+        document.getElementById("results").setAttribute("src", images[7]);
+    }
+    else if (cpuChoice == "zero"){
+        document.getElementById("results").setAttribute("src", images[8]);
+    }
+    else if (cpuChoice == "vile"){
+        document.getElementById("results").setAttribute("src", images[9]);
+    }
+    else{
+        document.getElementById("results").setAttribute("src", images[10]);
+    }
+}
 
 
 
@@ -66,15 +101,27 @@ function winGranter() {
     if (!blanks.includes("_")) {
         wins++;
         document.getElementById("winnies").innerText = wins;
+        imageGenerator();
         cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
         blanker();
     }
 }
 
 function lossGranter() {
-    if (guessesRemaining <= 0){
+    if (guessesRemaining <= 0) {
         document.getElementById("results").innerHTML = "<h2>The character was " + cpuChoice + "!</h2>";
         cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
         blanker();
     }
+}
+
+function playSound(url) {
+    var audio = document.createElement('audio');
+    audio.style.display = "none";
+    audio.src = url;
+    audio.autoplay = true;
+    audio.onended = function () {
+        audio.remove() //Remove when played.
+    };
+    document.body.appendChild(audio);
 }
