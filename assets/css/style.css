@@ -3,3 +3,12 @@ body {
     background-repeat: repeat;
     margin:0px;
 }
+
+@font-face {
+    font-family: "Ode to Idle Gaming";
+    src: url("../font/Ode_to_Idle_Gaming.woff")
+}
+
+h1 {
+    font-family: "Ode to Idle Gaming", "courier new", "serif";
+}

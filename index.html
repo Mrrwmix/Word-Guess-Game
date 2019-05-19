@@ -12,7 +12,7 @@
 
 <body>
     <div class="container bg-light">
-        <div class="row">
+        <div class="row mt-2 border-rounded">
             <div class="col-sm-12 d-flex justify-content-center align-items-center">
                 <h1 class="text-center">Classic Gaming Word Guess Game!</h1>
             </div>
@@ -20,10 +20,11 @@
         <div class="row">
             <div class="col-sm-9 d-flex justify-content-center align-items-center">
                 <img id="results" src="">
+                <audio style="display: none" src="" id="audio"></audio>
             </div>
             <div class="card col-sm-3">
                 <div class="card-header">
-                    <p>Press any key to play!</p>
+                    <p id="instructions">Press any key to play!</p>
                 </div>
                 <div class="list-group list-group-flush">
                     <li class="list-group-item">Your total wins: <span id="winnies"></span></li>
