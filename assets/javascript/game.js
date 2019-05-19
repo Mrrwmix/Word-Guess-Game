@@ -24,14 +24,17 @@ blanker();
 document.onkeyup = function (event) {
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         var theGuess = event.key;
-        for (var i = 0; i < cpuChoice.length; i++){
-            if(cpuChoice.charAt(i) == theGuess){
-                blanks[i] = theGuess;
+        if (!lettersGuessed.includes(theGuess)) {
+            for (var i = 0; i < cpuChoice.length; i++) {
+                if (cpuChoice.charAt(i) == theGuess) {
+                    blanks[i] = theGuess;
+                }
             }
+            lettersGuessed.push(theGuess);
+            document.getElementById("letters").innerText = lettersGuessed;
+            document.getElementById("currentWord").innerText = blanks;
+            winGranter();
         }
-
-        document.getElementById("currentWord").innerText = blanks;
-        winGranter();
     }
     else {
         alert("Please guess a letter!");
@@ -51,7 +54,7 @@ document.onkeyup = function (event) {
 
 //update wins and losses, play song, choose new word
 function winGranter() {
-    if (!blanks.includes("_")){
+    if (!blanks.includes("_")) {
         wins++;
         document.getElementById("winnies").innerText = wins;
         cpuChoice = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
