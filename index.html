@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +9,34 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Word Guess Game</title>
 </head>
+
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-light">
         <div class="row">
-            <div class="col-sm-12 jumbotron bg-info">
-                <h1 class="text-center">4th Grade Math Word Guess Game!</h1>
+            <div class="col-sm-12 d-flex justify-content-center align-items-center">
+                <h1 class="text-center">Classic Gaming Word Guess Game!</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-9 border border-dark">
+            <div class="col-sm-9">
                 <section>Image goes here</section>
             </div>
-            <div class="col-sm-3 border border-dark">
-                <div class="row">
-                    <div class="col-sm-6 border border-dark">
-                        <p>Press space to play!</p>
-                        <p>Your total wins: <span id="winnies"></span></p>
-                        <p>Current Word</p>
-                        <p id="currentWord"></p>
-                    </div>
-                    <div class="col-sm-6 border border-dark">
-                        <p>Number of guesses remaining: <span id="guessy"></span></p>
-                        <p>Letters already guessed: <span id="letters"></span></p>
-                    </div>
+            <div class="card col-sm-3">
+                <div class="card-header">
+                    <p>Press any key to play!</p>
+                </div>
+                <div class="list-group list-group-flush">
+                    <li class="list-group-item">Your total wins: <span id="winnies"></span></li>
+                    <li class="list-group-item">Current Word</li>
+                    <div id="currentWord">abcdef</div>
+                    <li class="list-group-item">Number of guesses remaining: <span id="guessy"></span></li>
+                    <li class="list-group-item">Letters already guessed: <span id="letters"></span></li>
                 </div>
             </div>
         </div>
     </div>
     <script src="assets/javascript/game.js"></script>
-    
+
 </body>
+
 </html>
